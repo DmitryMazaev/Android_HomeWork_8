@@ -1,0 +1,7 @@
+<resources>
+    <!--Название приложения изменено на Quiz-Please -->
+    <string name="app_name">Quiz-Please</string>
+    <string name="button_text">Продолжить</string>
+    <string name="image_description">welcome image</string>
+    <string name="second_activity_text">Ведутся ремонтные работы</string>
+</resources>
