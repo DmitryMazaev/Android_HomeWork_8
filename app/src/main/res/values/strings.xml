@@ -4,4 +4,14 @@
     <string name="button_text">Продолжить</string>
     <string name="image_description">welcome image</string>
     <string name="second_activity_text">Ведутся ремонтные работы</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="quation_one">1. Кто был основным автором текстов группы "Наутилус Помпилиус"?</string>
+    <string name="quation_two">2. Настоящее имя лидера "Гражданской обороны" Летова:</string>
+    <string name="quation_three">3. Кто из политических деятелей был дедом музыканта Стаса Намина?</string>
+    <string name="button_send">Отправить</string>
+    <string name="button_back">  Назад  </string>
+    <string name="button_try_again">Начать заново</string>
+    <string name="result_label">Поздравляю! Вы прошли тест!</string>
+    <string name="result_text">Ваш результат: </string>
 </resources>

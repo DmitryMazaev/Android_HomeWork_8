@@ -16,7 +16,8 @@
         <activity
             android:name=".SecondActivity"
             android:exported="false"
-            android:label="QUIZ"/>
+            android:label="QUIZ"
+            />
         <activity
             android:name=".MainActivity"
             android:exported="true">

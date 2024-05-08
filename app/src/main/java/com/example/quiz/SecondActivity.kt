@@ -5,14 +5,19 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
+import androidx.navigation.findNavController
 import com.example.quiz.databinding.ActivityMainBinding
 
 class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_second)
         val binding = ActivityMainBinding.inflate(layoutInflater)
-        //setContentView(binding.root)
         setContentView(R.layout.activity_second)
+
+        supportFragmentManager.commit {
+            replace<QuizFragment>(R.id.quiz_fragment)
+        }
     }
 }
