@@ -8,16 +8,19 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.quiz.databinding.ActivityMainBinding
+import com.example.quiz.databinding.ActivitySecondBinding
+
 
 class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_second)
-
         supportFragmentManager.commit {
             replace<QuizFragment>(R.id.quiz_fragment)
         }
     }
+
 }
