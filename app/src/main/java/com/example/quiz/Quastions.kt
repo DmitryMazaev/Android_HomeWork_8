@@ -6,7 +6,7 @@ class Quastions {
     var answer2 = Answer("а. Егор", "б. Андрей", "в. Джаред", "г. Игорь")
     var answer3 = Answer("а. Сталин", "б. Хрущев", "в. Микоян", "г. Брежнев")
     var rightAnswers = ArrayList<Int>()
-    var myAnswer = ArrayList<Int>()
+    var myAnswer = mutableListOf(7, 7, 7)
     fun addAnswwer(){
         quastions.add(answer1)
         quastions.add(answer2)

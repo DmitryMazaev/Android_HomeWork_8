@@ -11,16 +11,16 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.quiz.databinding.ActivityMainBinding
 import com.example.quiz.databinding.ActivitySecondBinding
+import com.example.quiz.databinding.FragmentQuizBinding
 
 
 class SecondActivity : AppCompatActivity() {
+    private var _binding: ActivitySecondBinding? = null
+    private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_second)
-        supportFragmentManager.commit {
-            replace<QuizFragment>(R.id.quiz_fragment)
-        }
+        _binding = ActivitySecondBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 
 }

@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.graphics.blue
 import androidx.core.graphics.green
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.quiz.databinding.FragmentQuizBinding
@@ -28,6 +30,7 @@ class QuizFragment : Fragment() {
     private var param2: String? = null
 
     var quastions = Quastions()
+    var count: Int = 0
 
     private var _binding: FragmentQuizBinding? = null
     private val binding get() = _binding!!
@@ -62,39 +65,20 @@ class QuizFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        /*binding.radioGrop1.setOnCheckedChangeListener{_, buttonId ->
-            when (buttonId) {
-                R.id.rb1_1 -> quastions.rightAnswers.add(0, 0)
-                R.id.rb1_2 -> quastions.rightAnswers.add(0, 1)
-                R.id.rb1_3 -> quastions.rightAnswers.add(0, 2)
-                R.id.rb1_4 -> quastions.rightAnswers.add(0, 3)
-            }
-        }
-        binding.radioGrop2.setOnCheckedChangeListener{_, buttonId ->
-            when (buttonId) {
-                R.id.rb2_1 -> quastions.rightAnswers.add(1, 0)
-                R.id.rb2_2 -> quastions.rightAnswers.add(1, 1)
-                R.id.rb2_3 -> quastions.rightAnswers.add(1, 2)
-                R.id.rb2_4 -> quastions.rightAnswers.add(1, 3)
-            }
-        }
-        binding.radioGrop3.setOnCheckedChangeListener{_, buttonId ->
-            when (buttonId) {
-                R.id.rb3_1 -> quastions.rightAnswers.add(1, 0)
-                R.id.rb3_2 -> quastions.rightAnswers.add(1, 1)
-                R.id.rb3_3 -> quastions.rightAnswers.add(1, 2)
-                R.id.rb3_4 -> quastions.rightAnswers.add(1, 3)
-            }
-        }*/
-
-        // Inflate the layout for this fragment
         _binding = FragmentQuizBinding.inflate(inflater)
         addQuastionsAndAnswer()
+        radioGroupAction ()
         binding.btnSend.setOnClickListener {
+            val bundle = Bundle().apply {
+                putString("param1", count.toString())
+            }
+            parentFragmentManager.commit {
+                replace<ResultFragment>(containerViewId = R.id.resultCount, args = bundle)
+                addToBackStack(ResultFragment::class.java.simpleName)
+            }
             findNavController().navigate(R.id.action_QuizFragment_to_Resultfragment)
         }
         return binding.root
-        //return inflater.inflate(R.layout.fragment_quiz, container, false)
     }
 
     override fun onDestroyView() {
@@ -120,5 +104,43 @@ class QuizFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    fun radioGroupAction () {
+        binding.radioGrop1.setOnCheckedChangeListener{_, buttonId ->
+            when (buttonId) {
+                R.id.rb1_1 -> quastions.myAnswer[0] = 0
+                R.id.rb1_2 -> quastions.myAnswer[0] = 1
+                R.id.rb1_3 -> quastions.myAnswer[0] = 2
+                R.id.rb1_4 -> quastions.myAnswer[0] = 3
+            }
+            check()
+        }
+        binding.radioGrop2.setOnCheckedChangeListener{_, buttonId ->
+            when (buttonId) {
+                R.id.rb2_1 -> quastions.myAnswer[1] = 0
+                R.id.rb2_2 -> quastions.myAnswer[1] = 1
+                R.id.rb2_3 -> quastions.myAnswer[1] = 2
+                R.id.rb2_4 -> quastions.myAnswer[1] = 3
+            }
+            check()
+        }
+        binding.radioGrop3.setOnCheckedChangeListener{_, buttonId ->
+            when (buttonId) {
+                R.id.rb3_1 -> quastions.myAnswer[2] = 0
+                R.id.rb3_2 -> quastions.myAnswer[2] = 1
+                R.id.rb3_3 -> quastions.myAnswer[2] = 2
+                R.id.rb3_4 -> quastions.myAnswer[2] = 3
+            }
+            check()
+        }
+    }
+    fun check() {
+        for(i in 0 until quastions.rightAnswers.size) {
+            if (quastions.rightAnswers.get(i) == quastions.myAnswer[i]) {
+                count +=1
+            }
+        }
+        binding.countDelete.text = count.toString()
     }
 }
