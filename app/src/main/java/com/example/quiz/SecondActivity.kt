@@ -16,11 +16,11 @@ import com.example.quiz.databinding.ActivitySecondBinding
 class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_second)
+        val binding = ActivitySecondBinding.inflate(layoutInflater)
         supportFragmentManager.commit {
             replace<QuizFragment>(R.id.quiz_fragment)
         }
+        setContentView(R.layout.activity_second)
     }
 
 }
