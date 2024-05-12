@@ -53,6 +53,7 @@ class ResultFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.resultCount.text = param1.toString()
+        binding.yourResult.text = param2.toString()
     }
 
     companion object {

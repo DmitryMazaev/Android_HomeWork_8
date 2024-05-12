@@ -1,5 +1,6 @@
 package com.example.quiz
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -31,6 +32,7 @@ class QuizFragment : Fragment() {
 
     var quastions = Quastions()
     var count: Int = 0
+    var res: String = ""
 
     private var _binding: FragmentQuizBinding? = null
     private val binding get() = _binding!!
@@ -67,16 +69,14 @@ class QuizFragment : Fragment() {
     ): View? {
         _binding = FragmentQuizBinding.inflate(inflater)
         addQuastionsAndAnswer()
-        radioGroupAction ()
+        radioGroupAction()
         binding.btnSend.setOnClickListener {
             val bundle = Bundle().apply {
                 putString("param1", count.toString())
+                putString("param2", res)
             }
-            parentFragmentManager.commit {
-                replace<ResultFragment>(containerViewId = R.id.resultCount, args = bundle)
-                addToBackStack(ResultFragment::class.java.simpleName)
-            }
-            findNavController().navigate(R.id.action_QuizFragment_to_Resultfragment)
+            findNavController().navigate(R.id.action_QuizFragment_to_Resultfragment, bundle)
+            onDestroyView()
         }
         return binding.root
     }
@@ -115,6 +115,7 @@ class QuizFragment : Fragment() {
                 R.id.rb1_4 -> quastions.myAnswer[0] = 3
             }
             check()
+            //binding.countDelete.text = check().toString()
         }
         binding.radioGrop2.setOnCheckedChangeListener{_, buttonId ->
             when (buttonId) {
@@ -124,6 +125,7 @@ class QuizFragment : Fragment() {
                 R.id.rb2_4 -> quastions.myAnswer[1] = 3
             }
             check()
+            //binding.countDelete.text = check().toString()
         }
         binding.radioGrop3.setOnCheckedChangeListener{_, buttonId ->
             when (buttonId) {
@@ -133,14 +135,31 @@ class QuizFragment : Fragment() {
                 R.id.rb3_4 -> quastions.myAnswer[2] = 3
             }
             check()
+            //binding.countDelete.text = check().toString()
         }
     }
-    fun check() {
+    fun check(){
+        count = 0
         for(i in 0 until quastions.rightAnswers.size) {
             if (quastions.rightAnswers.get(i) == quastions.myAnswer[i]) {
                 count +=1
             }
         }
-        binding.countDelete.text = count.toString()
+        result()
+        //binding.countDelete.text = count.toString()
+    }
+    fun result() {
+        if (count == 0) {
+            res = "К сожалению, вы ничего не знаете о русском роке..."
+        }
+        if (count == 1) {
+            res = "Вам есть, куда стремиться, слушайте больше"
+        }
+        if (count == 2) {
+            res = "Вы почти дошли до вершины, у вас хорошие познания"
+        }
+        if (count == 3) {
+            res = "Михаил Козырев, залогиньтесь!"
+        }
     }
 }
