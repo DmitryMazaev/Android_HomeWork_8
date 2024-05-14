@@ -70,6 +70,18 @@ class QuizFragment : Fragment() {
         _binding = FragmentQuizBinding.inflate(inflater)
         addQuastionsAndAnswer()
         radioGroupAction()
+        binding.radioGrop1.animate().apply {
+            duration = 3000
+            alpha(1f)
+        }
+        binding.radioGrop2.animate().apply {
+            duration = 3000
+            alpha(1f)
+        }
+        binding.radioGrop3.animate().apply {
+            duration = 3000
+            alpha(1f)
+        }
         binding.btnSend.setOnClickListener {
             val bundle = Bundle().apply {
                 putString("param1", count.toString())
