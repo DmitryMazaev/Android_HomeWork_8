@@ -11,19 +11,25 @@
         tools:layout="@layout/fragment_preview" >
         <action
             android:id="@+id/action_PreviewFragment_to_QuizFragment"
-            app:destination="@+id/QuizFragment" />
+            app:destination="@+id/QuizFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/QuizFragment"
         android:name="com.example.quiz.QuizFragment"
         android:label="Quiz"
         tools:layout="@layout/fragment_quiz" >
-            <action
-                android:id="@+id/action_QuizFragment_to_Resultfragment"
-                app:destination="@+id/ResultFragment" />
-            <action
-                android:id="@+id/action_QuizFragment_to_Previewfragment"
-                app:destination="@+id/PreviewFragment" />
+        <action
+            android:id="@+id/action_QuizFragment_to_Resultfragment"
+            app:destination="@+id/ResultFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_QuizFragment_to_Previewfragment"
+            app:destination="@+id/PreviewFragment"
+            app:enterAnim="@anim/fade_out"
+            />
     </fragment>
     <fragment
         android:id="@+id/ResultFragment"
@@ -32,6 +38,7 @@
         tools:layout="@layout/fragment_result" >
         <action
             android:id="@+id/action_ResultFragment_to_QuizFragment"
-            app:destination="@+id/QuizFragment" />
+            app:destination="@+id/QuizFragment"
+            app:enterAnim="@anim/fade_out" />
     </fragment>
 </navigation>

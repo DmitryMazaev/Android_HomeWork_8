@@ -1,10 +1,12 @@
 package com.example.quiz
 
+import android.app.ActivityOptions
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.findNavController
 import com.example.quiz.databinding.FragmentPreviewBinding
 import com.example.quiz.databinding.FragmentQuizBinding
@@ -39,9 +41,7 @@ class PreviewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentPreviewBinding.inflate(inflater)
-
         binding.button.setOnClickListener {
-
             findNavController().navigate(R.id.action_PreviewFragment_to_QuizFragment)
             onDestroyView()
         }

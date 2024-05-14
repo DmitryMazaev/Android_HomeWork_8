@@ -3,7 +3,9 @@ package com.example.quiz
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import androidx.core.view.WindowCompat
+import androidx.transition.Slide
 import com.example.quiz.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
