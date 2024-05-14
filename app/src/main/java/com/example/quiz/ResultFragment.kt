@@ -1,5 +1,7 @@
 package com.example.quiz
 
+import android.animation.ObjectAnimator
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -39,6 +41,8 @@ class ResultFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentResultBinding.inflate(inflater)
+        colors()
+        rolling()
         binding.btnBack.setOnClickListener {
             findNavController().navigate(R.id.action_ResultFragment_to_QuizFragment)
         }
@@ -54,6 +58,28 @@ class ResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.resultCount.text = param1.toString()
         binding.yourResult.text = param2.toString()
+    }
+    private fun colors() {
+        ObjectAnimator.ofArgb(binding.yourResult,
+            "textColor",
+            Color.parseColor("#dd4492"),
+            Color.parseColor("#6c6874")
+        ).apply {
+            duration = 2000
+            repeatCount = ObjectAnimator.INFINITE
+            start()
+        }
+    }
+    private fun rolling() {
+        ObjectAnimator.ofFloat(binding.resultCount,
+            View.ROTATION,
+            0f,
+            360f
+        ).apply {
+            duration = 2000
+            repeatCount = ObjectAnimator.INFINITE
+            start()
+        }
     }
 
     companion object {
