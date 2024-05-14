@@ -15,7 +15,7 @@ class Quastions {
 
     fun addRightAnswer(){
         rightAnswers.add(1)
-        rightAnswers.add(0)
+        rightAnswers.add(3)
         rightAnswers.add(2)
     }
 

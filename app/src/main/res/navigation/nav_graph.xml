@@ -3,7 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@+id/QuizFragment">
+    app:startDestination="@+id/PreviewFragment">
+    <fragment
+        android:id="@+id/PreviewFragment"
+        android:name="com.example.quiz.PreviewFragment"
+        android:label="Preview"
+        tools:layout="@layout/fragment_preview" >
+        <action
+            android:id="@+id/action_PreviewFragment_to_QuizFragment"
+            app:destination="@+id/QuizFragment" />
+    </fragment>
     <fragment
         android:id="@+id/QuizFragment"
         android:name="com.example.quiz.QuizFragment"
@@ -12,6 +21,9 @@
             <action
                 android:id="@+id/action_QuizFragment_to_Resultfragment"
                 app:destination="@+id/ResultFragment" />
+            <action
+                android:id="@+id/action_QuizFragment_to_Previewfragment"
+                app:destination="@+id/PreviewFragment" />
     </fragment>
     <fragment
         android:id="@+id/ResultFragment"

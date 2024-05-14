@@ -78,6 +78,10 @@ class QuizFragment : Fragment() {
             findNavController().navigate(R.id.action_QuizFragment_to_Resultfragment, bundle)
             onDestroyView()
         }
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.action_QuizFragment_to_Previewfragment)
+            onDestroyView()
+        }
         return binding.root
     }
 
