@@ -5,7 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PreviewFragment">
-
+    <Button
+        android:background="@drawable/custom_ripple_effect"
+        android:focusable="true"
+        android:clickable="true"
+        android:id="@+id/buttonDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/button_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/image" />
     <ImageView
         android:id="@+id/image"
         android:layout_width="0dp"

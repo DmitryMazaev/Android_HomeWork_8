@@ -17,8 +17,8 @@ import com.google.android.material.snackbar.Snackbar
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+const val ARG_PARAM1 = "param1"
+const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -30,28 +30,28 @@ class QuizFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    var quastions = Quastions()
-    var count: Int = 0
+    private var quastions = Quastions()
+    private var count: Int = 0
     var res: String = ""
 
     private var _binding: FragmentQuizBinding? = null
     private val binding get() = _binding!!
 
-    fun addQuastionsAndAnswer() {
+    private fun addQuastionsAndAnswer() {
         quastions.addAnswwer()
         quastions.addRightAnswer()
-        binding.rb11.text = quastions.answer1.answerOne.toString()
-        binding.rb12.text = quastions.answer1.answerTwo.toString()
-        binding.rb13.text = quastions.answer1.answerThree.toString()
-        binding.rb14.text = quastions.answer1.answerFour.toString()
-        binding.rb21.text = quastions.answer2.answerOne.toString()
-        binding.rb22.text = quastions.answer2.answerTwo.toString()
-        binding.rb23.text = quastions.answer2.answerThree.toString()
-        binding.rb24.text = quastions.answer2.answerFour.toString()
-        binding.rb31.text = quastions.answer3.answerOne.toString()
-        binding.rb32.text = quastions.answer3.answerTwo.toString()
-        binding.rb33.text = quastions.answer3.answerThree.toString()
-        binding.rb34.text = quastions.answer3.answerFour.toString()
+        binding.rb11.text = quastions.answer1.answerOne
+        binding.rb12.text = quastions.answer1.answerTwo
+        binding.rb13.text = quastions.answer1.answerThree
+        binding.rb14.text = quastions.answer1.answerFour
+        binding.rb21.text = quastions.answer2.answerOne
+        binding.rb22.text = quastions.answer2.answerTwo
+        binding.rb23.text = quastions.answer2.answerThree
+        binding.rb24.text = quastions.answer2.answerFour
+        binding.rb31.text = quastions.answer3.answerOne
+        binding.rb32.text = quastions.answer3.answerTwo
+        binding.rb33.text = quastions.answer3.answerThree
+        binding.rb34.text = quastions.answer3.answerFour
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -84,8 +84,8 @@ class QuizFragment : Fragment() {
         }
         binding.btnSend.setOnClickListener {
             val bundle = Bundle().apply {
-                putString("param1", count.toString())
-                putString("param2", res)
+                putString(ARG_PARAM1, count.toString())
+                putString(ARG_PARAM2, res)
             }
             findNavController().navigate(R.id.action_QuizFragment_to_Resultfragment, bundle)
             onDestroyView()
@@ -122,7 +122,7 @@ class QuizFragment : Fragment() {
             }
     }
 
-    fun radioGroupAction () {
+    private fun radioGroupAction () {
         binding.radioGrop1.setOnCheckedChangeListener{_, buttonId ->
             when (buttonId) {
                 R.id.rb1_1 -> quastions.myAnswer[0] = 0
@@ -154,7 +154,7 @@ class QuizFragment : Fragment() {
             //binding.countDelete.text = check().toString()
         }
     }
-    fun check(){
+    private fun check(){
         count = 0
         for(i in 0 until quastions.rightAnswers.size) {
             if (quastions.rightAnswers.get(i) == quastions.myAnswer[i]) {
@@ -164,7 +164,7 @@ class QuizFragment : Fragment() {
         result()
         //binding.countDelete.text = count.toString()
     }
-    fun result() {
+    private fun result() {
         if (count == 0) {
             res = "К сожалению, вы ничего не знаете о русском роке..."
         }

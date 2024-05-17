@@ -11,6 +11,7 @@
     <string name="quation_three">3. Кто из политических деятелей был дедом музыканта Стаса Намина?</string>
     <string name="button_send">Отправить</string>
     <string name="button_back">  Назад  </string>
+    <string name="button_date">Введите дату рождения</string>
     <string name="button_try_again">Начать заново</string>
     <string name="result_label">Поздравляю! Вы прошли тест!</string>
     <string name="result_text">Ваш результат: </string>

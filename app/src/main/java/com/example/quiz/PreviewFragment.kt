@@ -10,12 +10,14 @@ import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.findNavController
 import com.example.quiz.databinding.FragmentPreviewBinding
 import com.example.quiz.databinding.FragmentQuizBinding
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.snackbar.Snackbar
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import kotlin.concurrent.timer
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 /**
  * A simple [Fragment] subclass.
  * Use the [PreviewFragment.newInstance] factory method to
@@ -27,6 +29,7 @@ class PreviewFragment : Fragment() {
     private var param2: String? = null
     private var _binding: FragmentPreviewBinding? = null
     private val binding get() = _binding!!
+    private val calendar = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +48,23 @@ class PreviewFragment : Fragment() {
             findNavController().navigate(R.id.action_PreviewFragment_to_QuizFragment)
             onDestroyView()
         }
+        binding.buttonDate.setOnClickListener {
+            enterDate()
+        }
         return binding.root
+    }
+
+    private fun enterDate() {
+        val dateDialog = MaterialDatePicker.Builder.datePicker()
+            .build()
+
+        dateDialog.addOnPositiveButtonClickListener {timeInMillis ->
+            calendar.timeInMillis = timeInMillis
+            val dateFormat = SimpleDateFormat("dd-MM-yyyy")
+            Snackbar.make(binding.buttonDate, dateFormat.format(calendar.time), Snackbar.LENGTH_SHORT).show()
+
+        }
+        dateDialog.show(parentFragmentManager, "DatePicker")
     }
 
     companion object {
