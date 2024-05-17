@@ -1,0 +1,41 @@
+<resources>
+    <!--Название приложения изменено на Quiz-Please -->
+    <string name="app_name">КВИЗ-ПЛИЗ</string>
+    <string name="button_text">Продолжить</string>
+    <string name="image_description">welcome image</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="quation_one">1. Кто был основным автором текстов группы "Наутилус Помпилиус"?</string>
+    <string-array name="quastion_one_array">
+        <item>а. Бутусов</item>
+        <item>б. Кормильцев</item>
+        <item>в. Шахрин</item>
+        <item>г. Балабанов</item>
+    </string-array>
+    <string name="quation_two">2. Настоящее имя лидера "Гражданской обороны" Летова:</string>
+    <string-array name="quastion_two_array">
+        <item>а. Егор</item>
+        <item>б. Андрей</item>
+        <item>в. Джаред</item>
+        <item>г. Игорь</item>
+    </string-array>
+    <string name="quation_three">3. Кто из политических деятелей был дедом музыканта Стаса Намина?</string>
+    <string-array name="quastion_three_array">
+        <item>а. Сталин</item>
+        <item>б. Хрущев</item>
+        <item>в. Микоян</item>
+        <item>г. Брежнев</item>
+    </string-array>
+    <string-array name="result_array">
+        <item>К сожалению, вы ничего не знаете о русском роке...</item>
+        <item>Вам есть, куда стремиться, слушайте больше</item>
+        <item>Вы почти дошли до вершины, у вас хорошие познания</item>
+        <item>Михаил Козырев, залогиньтесь!</item>
+    </string-array>
+    <string name="button_send">Отправить</string>
+    <string name="button_back">  Назад  </string>
+    <string name="button_date">Введите дату рождения</string>
+    <string name="button_try_again">Начать заново</string>
+    <string name="result_label">Поздравляю! Вы прошли тест!</string>
+    <string name="result_text">Ваш результат: </string>
+</resources>

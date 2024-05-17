@@ -40,18 +40,18 @@ class QuizFragment : Fragment() {
     private fun addQuastionsAndAnswer() {
         quastions.addAnswwer()
         quastions.addRightAnswer()
-        binding.rb11.text = quastions.answer1.answerOne
-        binding.rb12.text = quastions.answer1.answerTwo
-        binding.rb13.text = quastions.answer1.answerThree
-        binding.rb14.text = quastions.answer1.answerFour
-        binding.rb21.text = quastions.answer2.answerOne
-        binding.rb22.text = quastions.answer2.answerTwo
-        binding.rb23.text = quastions.answer2.answerThree
-        binding.rb24.text = quastions.answer2.answerFour
-        binding.rb31.text = quastions.answer3.answerOne
-        binding.rb32.text = quastions.answer3.answerTwo
-        binding.rb33.text = quastions.answer3.answerThree
-        binding.rb34.text = quastions.answer3.answerFour
+        binding.rb11.text = resources.getStringArray(R.array.quastion_one_array)[0]
+        binding.rb12.text = resources.getStringArray(R.array.quastion_one_array)[1]
+        binding.rb13.text = resources.getStringArray(R.array.quastion_one_array)[2]
+        binding.rb14.text = resources.getStringArray(R.array.quastion_one_array)[3]
+        binding.rb21.text = resources.getStringArray(R.array.quastion_two_array)[0]
+        binding.rb22.text = resources.getStringArray(R.array.quastion_two_array)[1]
+        binding.rb23.text = resources.getStringArray(R.array.quastion_two_array)[2]
+        binding.rb24.text = resources.getStringArray(R.array.quastion_two_array)[3]
+        binding.rb31.text = resources.getStringArray(R.array.quastion_three_array)[0]
+        binding.rb32.text = resources.getStringArray(R.array.quastion_three_array)[1]
+        binding.rb33.text = resources.getStringArray(R.array.quastion_three_array)[2]
+        binding.rb34.text = resources.getStringArray(R.array.quastion_three_array)[3]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -166,16 +166,16 @@ class QuizFragment : Fragment() {
     }
     private fun result() {
         if (count == 0) {
-            res = "К сожалению, вы ничего не знаете о русском роке..."
+            res = resources.getStringArray(R.array.result_array)[0]
         }
         if (count == 1) {
-            res = "Вам есть, куда стремиться, слушайте больше"
+            res = resources.getStringArray(R.array.result_array)[1]
         }
         if (count == 2) {
-            res = "Вы почти дошли до вершины, у вас хорошие познания"
+            res = resources.getStringArray(R.array.result_array)[2]
         }
         if (count == 3) {
-            res = "Михаил Козырев, залогиньтесь!"
+            res = resources.getStringArray(R.array.result_array)[3]
         }
     }
 }
